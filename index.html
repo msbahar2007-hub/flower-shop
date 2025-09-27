@@ -1,0 +1,224 @@
+vvvv<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>فروشگاه گل‌های شگفت‌انگیز</title>
+  <style>
+    /* استایل کامل اینجا */
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #fff0f5;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+    }
+    header {
+      background-color: #ff69b4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #ffe4e1;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #d6336c;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff1493;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px 15px;
+      gap: 20px;
+    }
+    .product {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product h3 {
+      margin-bottom: 10px;
+      color: #d6336c;
+    }
+    .price {
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #ff1493;
+    }
+    button.buy-btn {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button.buy-btn:hover {
+      background-color: #ff1493;
+    }
+    section.contact {
+      background-color: #ffe4e1;
+      padding: 30px 20px;
+      max-width: 600px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    section.contact h2 {
+      color: #d6336c;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #d6336c;
+      font-size: 16px;
+      resize: vertical;
+    }
+    button.submit-btn {
+      background-color: #d6336c;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    button.submit-btn:hover {
+      background-color: #ff1493;
+    }
+    footer {
+      background-color: #ff69b4;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product {
+        width: 90%;
+      }
+      nav a {
+        display: inline-block;
+        margin: 10px 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>فروشگاه گل‌های شگفت‌انگیز</h1>
+    <p>زیبایی‌های شگفت‌انگیز جهان را کشف کنید</p>
+  </header>
+
+  <nav>
+    <a href="#home">خانه</a>
+    <a href="#products">محصولات</a>
+    <a href="#contact">تماس با ما</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <h2>گل‌هایی برای هر مناسبت</h2>
+    <p>ارسال سریع، کیفیت عالی، طراحی خاص</p>
+  </section>
+
+  <section id="products" class="products">
+    <div class="product">
+      <h3>گل رز قرمز</h3>
+      <p class="price">قیمت: 120,000 تومان</p>
+      <button class="buy-btn" onclick="buyProduct('گل رز قرمز')">خرید</button>
+    </div>
+    <div class="product">
+      <h3>گل لاله صورتی</h3>
+      <p class="price">قیمت: 95,000 تومان</p>
+      <button class="buy-btn" onclick="buyProduct('گل لاله صورتی')">خرید</button>
+    </div>
+    <div class="product">
+      <h3>باکس گل ترکیبی</h3>
+      <p class="price">قیمت: 180,000 تومان</p>
+      <button class="buy-btn" onclick="buyProduct('باکس گل ترکیبی')">خرید</button>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>تماس با ما</h2>
+    <form id="contactForm" onsubmit="return submitForm(event)">
+      <input type="text" id="name" name="name" placeholder="نام شما" required />
+      <input type="email" id="email" name="email" placeholder="ایمیل شما" required />
+      <textarea id="message" name="message" rows="4" placeholder="پیام شما" required></textarea>
+      <button type="submit" class="submit-btn">ارسال پیام</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 فروشگاه گل | طراحی با عشق 🌷</p>
+  </footer>
+
+  <script>
+    function buyProduct(productName) {
+      alert('تشکر از خرید شما: ' + productName + ' 🌹');
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if(name && email && message) {
+        alert('پیام شما با موفقیت ارسال شد. متشکریم، ' + name + '!');
+        document.getElementById('contactForm').reset();
+      } else {
+        alert('لطفا تمام فیلدها را پر کنید.');
+      }
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>
